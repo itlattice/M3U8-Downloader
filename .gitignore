@@ -1,0 +1,8 @@
+[Nn]ode_modules/
+yarn.lock
+yarn-*
+dist/
+.DS_Store
+.vscode
+.idea
+.github
