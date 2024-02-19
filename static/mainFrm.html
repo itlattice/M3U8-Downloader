@@ -21,26 +21,26 @@
                     </el-row>
 
                     <div class="systemTool">
-                        <el-dropdown trigger="click">
-                            <span class="el-dropdown-link">关于</span>
-                            <el-dropdown-menu slot="dropdown">
-                                <el-dropdown-item icon="el-icon-link">
-                                    <a class="mylink" href="https://tools.heisir.cn/HLSDownload/"
-                                        v-on:click.stop.prevent="clickAClick">官网</a>
-                                </el-dropdown-item>
-                                <el-dropdown-item icon="el-icon-link">
-                                    <a class="mylink" href="https://github.com/HeiSir2014/M3U8-Downloader"
-                                        v-on:click.stop.prevent="clickAClick">开放源码</a>
-                                </el-dropdown-item>
-                                <el-dropdown-item icon="el-icon-connection">
-                                    <a class="mylink" href="https://jq.qq.com/?_wv=1027&k=nhFrZBS0"
-                                        v-on:click.stop.prevent="clickAClick">点击加群</a>
-                                </el-dropdown-item>
-                                <el-dropdown-item icon="el-icon-connection">
-                                    <a class="mylink" href="#" v-on:click.stop.prevent="clickStartHookUrl">资源嗅探</a>
-                                </el-dropdown-item>
-                            </el-dropdown-menu>
-                        </el-dropdown>
+<!--                        <el-dropdown trigger="click">-->
+<!--                            <span class="el-dropdown-link">关于</span>-->
+<!--                            <el-dropdown-menu slot="dropdown">-->
+<!--                                &lt;!&ndash;<el-dropdown-item icon="el-icon-link">-->
+<!--                                    <a class="mylink" href="https://tools.heisir.cn/HLSDownload/"-->
+<!--                                        v-on:click.stop.prevent="clickAClick">官网</a>-->
+<!--                                </el-dropdown-item>&ndash;&gt;-->
+<!--                                &lt;!&ndash;<el-dropdown-item icon="el-icon-link">-->
+<!--                                    <a class="mylink" href="https://github.com/HeiSir2014/M3U8-Downloader"-->
+<!--                                        v-on:click.stop.prevent="clickAClick">开放源码</a>-->
+<!--                                </el-dropdown-item>&ndash;&gt;-->
+<!--                                &lt;!&ndash;<el-dropdown-item icon="el-icon-connection">-->
+<!--                                    <a class="mylink" href="https://jq.qq.com/?_wv=1027&k=nhFrZBS0"-->
+<!--                                        v-on:click.stop.prevent="clickAClick">点击加群</a>-->
+<!--                                </el-dropdown-item>-->
+<!--                                <el-dropdown-item icon="el-icon-connection">-->
+<!--                                    <a class="mylink" href="#" v-on:click.stop.prevent="clickStartHookUrl">资源嗅探</a>-->
+<!--                                </el-dropdown-item>&ndash;&gt;-->
+<!--                            </el-dropdown-menu>-->
+<!--                        </el-dropdown>-->
                         <el-button class="button" icon="el-icon-setting" v-on:click="clickGotoSettingTab"></el-button>
                         <el-button class="button" icon="el-icon-close" v-on:click="clickClose"></el-button>
                     </div>
@@ -274,6 +274,19 @@
                             </el-tabs>
                         </el-tab-pane>
                         <el-tab-pane>
+                            <span slot="label"><i class="el-icon-view"></i> 批量嗅探</span>
+                            <el-container>
+                                    <el-form label-width="130px" style="margin-right: 65px;">
+                                        <el-form-item label="批量视频源" label-position="right">
+                                            <el-input type="textarea" :rows="6" placeholder="请输入一行一个M3U8视频源，格式：视频源----任务名（可空）,例如：
+                https://host/index1.m3u8----第一个视频
+                https://host/index2.m3u8----第二个视频
+                https://host/index3.m3u8" v-model="m3u8_urls"></el-input>
+                                        </el-form-item>
+                                    </el-form>
+                                </el-container>
+                        </el-tab-pane>
+                        <el-tab-pane>
                             <span slot="label"><i class="el-icon-view"></i> 资源嗅探</span>
                             <el-container>
                                 <el-container>
@@ -346,8 +359,8 @@
                                 </el-col>
                             </el-row>
                             <br>
-                            <el-divider><i class="el-icon-coffee"></i></el-divider>
-                            <el-row :gutter="8">
+<!--                            <el-divider><i class="el-icon-coffee"></i></el-divider>-->
+                            <!--<el-row :gutter="8">
                                 <el-col :span="4" :offset="7">
                                     <el-card class="paycode alipay" shadow="always">
                                         <img class="image" src="icon/alipay_code.png">
@@ -364,34 +377,34 @@
                                         </div>
                                     </el-card>
                                 </el-col>
-                            </el-row>
-                            <el-row :gutter="8">
+                            </el-row>-->
+                            <!--<el-row :gutter="8">
                                 <el-col :span="12" :offset="6">
                                     <el-alert title="开发不易，如果您觉得此款软件对您有帮助，可以请小哥哥喝杯咖啡吗?" type="error" :center="true"
                                         :closable="false">
                                     </el-alert>
                                 </el-col>
-                            </el-row>
+                            </el-row>-->
                         </el-tab-pane>
-                        <el-tab-pane label="交流反馈">
-                            <span slot="label"><i class="el-icon-chat-dot-square"></i> 交流反馈</span>
-                            <el-row :gutter="8">
-                                <el-col :span="22">
-                                    <el-alert title="警示：【天网恢恢疏而不漏】遵纪守法是每位公民应尽的义务，严禁在此发布违规违法内容，否则后果自负！违规内容举报QQ：1586462"
-                                        type="warning" :center="true" :closable="false" show-icon>
-                                    </el-alert>
-                                </el-col>
-                                <el-col :span="2">
-                                    <el-button class="mybutton" type="success" @click="clickRefreshComment">刷新
-                                    </el-button>
-                                    </el-alert>
-                                </el-col>
-                            </el-row>
-                            <section id="comments" class="vcomment"></section>
-                        </el-tab-pane>
-                        <el-tab-pane label="我的信息">
-                            <span slot="label"><i class="el-icon-s-custom"></i> 我</span>
-                        </el-tab-pane>
+<!--                        <el-tab-pane label="交流反馈">-->
+<!--                            <span slot="label"><i class="el-icon-chat-dot-square"></i> 交流反馈</span>-->
+<!--                            <el-row :gutter="8">-->
+<!--                                <el-col :span="22">-->
+<!--                                    <el-alert title="警示：【天网恢恢疏而不漏】遵纪守法是每位公民应尽的义务，严禁在此发布违规违法内容，否则后果自负！违规内容举报QQ：1586462"-->
+<!--                                        type="warning" :center="true" :closable="false" show-icon>-->
+<!--                                    </el-alert>-->
+<!--                                </el-col>-->
+<!--                                <el-col :span="2">-->
+<!--                                    <el-button class="mybutton" type="success" @click="clickRefreshComment">刷新-->
+<!--                                    </el-button>-->
+<!--                                    </el-alert>-->
+<!--                                </el-col>-->
+<!--                            </el-row>-->
+<!--                            <section id="comments" class="vcomment"></section>-->
+<!--                        </el-tab-pane>-->
+<!--                        <el-tab-pane label="我的信息">-->
+<!--                            <span slot="label"><i class="el-icon-s-custom"></i> 我</span>-->
+<!--                        </el-tab-pane>-->
                     </el-tabs>
                 </el-main>
             </el-container>
