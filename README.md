@@ -1,3 +1,7 @@
+### 原仓库地址
+* https://github.com/HeiSir2014/M3U8-Downloader
+* 因作者超过一年未更新，且有bug，故迁移仓库继续维护
+
 
 ![M3U8-Downloader-Build](https://img.shields.io/github/workflow/status/heisir2014/M3U8-Downloader/M3U8-Downloader-Build?style=flat-square)
 [![Release](https://img.shields.io/github/v/release/heisir2014/m3u8-downloader?style=flat-square)](https://github.com/HeiSir2014/M3U8-Downloader/releases/latest)
